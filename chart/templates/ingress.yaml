@@ -14,20 +14,20 @@ metadata:
     heritage: "{{ .Release.Service }}"
 spec:
   rules:
-  - host: {{ .Values.ingress.airflow-url | quote }}
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "fullname" . }}-web
-          servicePort: 8080
-  - host: {{ .Values.ingress.flower-url | quote }}
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "fullname" . }}-flower
-          servicePort: 8080
+    - host: {{ .Values.ingress.airflow-url | quote }}
+      http:
+        paths:
+          - path: /
+          backend:
+            serviceName: {{ template "fullname" . }}-web
+            servicePort: 8080
+    - host: {{ .Values.ingress.flower-url | quote }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ template "fullname" . }}-flower
+              servicePort: 8080
 {{- if .Values.ingress.tls_seret.enabled }}
   tls:
     - secretName: {{ template "fullname" . }}-tls
