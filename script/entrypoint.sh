@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 CMD="airflow"
-chmod +x /tmp/aiflow/airflow-conf.sh
-/tmp/aiflow > $AIRFLOW_HOME/airflow.cfg
+cp /tmp/aiflow/airflow-conf.sh $AIRFLOW_HOME/airflow-conf.sh
+chmod +x $AIRFLOW_HOME/airflow-conf.sh
+/tmp/aiflow/airflow-conf.sh > $AIRFLOW_HOME/airflow.cfg
 exec $CMD "$@"
