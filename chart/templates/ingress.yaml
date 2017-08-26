@@ -12,6 +12,7 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+#commnt
 spec:
   rules:
     - host: {{ .Values.ingress.airflow-url | quote }}
