@@ -1,0 +1,42 @@
+postgresql:
+  postgresUser: airflow
+  postgresPassword: airflow
+  postgresDatabase: airflow
+rabbitmq:
+  rabbitmqUsername: airflow
+  rabbitmqPassword: airflow
+  rabbitmqVhost: airflow
+
+airflow:
+  dbPollSize: 5
+  dag_concurrency: 16
+  max_active_runs_per_dag: 16
+  fernet_key: 12
+  base_url: http://localhost:8080
+  secret_key: my_key
+  service_type: ClusterIP
+  smtp:
+    host: localhost
+    starttls: True
+    ssl: False
+    user: airflow
+    port: 25
+    password:
+    mail_from: airflow@airflow.local
+
+tls_seret:
+  enabled: false
+  #crt:
+  #key:
+
+ingress:
+  annotations:
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+  enabled: false
+  tls:
+      # - secretName: gitlab.cluster.local
+      #   hosts:
+      #     - gitlab.cluster.local
+  airflow-url: airflow.cluster.local
+  flower-url: flower.cluster.local
