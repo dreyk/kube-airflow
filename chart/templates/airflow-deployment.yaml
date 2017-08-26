@@ -53,7 +53,7 @@ spec:
               name: {{ template "fullname" . }}
               key: airflow-smtp-password
         volumeMounts:
-          - mountPath: /usr/local/airflow
+          - mountPath: /tmp/aiflow
             name: config
         ports:
         - name: web

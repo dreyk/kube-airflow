@@ -54,7 +54,7 @@ spec:
               key: airflow-smtp-password
         args: ["scheduler", "-n", "5"]
         volumeMounts:
-          - mountPath: /usr/local/airflow
+          - mountPath: /tmp/aiflow
             name: config
       volumes:
       - name: config

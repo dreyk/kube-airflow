@@ -19,7 +19,7 @@ rabbitmq:
 airflow:
   worker:
     replicas: 1
-  image: kuberlab/kube-airflow:1.8.0.0-1.6.6-0.1.1
+  image: kuberlab/kube-airflow:1.8.0.0-1.6.6-0.1.2
   dbPollSize: 5
   dag_concurrency: 16
   max_active_runs_per_dag: 16
