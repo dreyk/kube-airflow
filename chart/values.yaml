@@ -38,5 +38,5 @@ ingress:
       # - secretName: gitlab.cluster.local
       #   hosts:
       #     - gitlab.cluster.local
-  airflow-url: airflow.cluster.local
-  flower-url: flower.cluster.local
+  airflow_url: airflow.cluster.local
+  flower_url: flower.cluster.local
