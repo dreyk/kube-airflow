@@ -1,43 +1,43 @@
-{{- if .Values.ingress.enabled }}
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-{{- if .Values.ingress.annotations }}
-  annotations:
-{{ toYaml .Values.ingress.annotations | indent 4 }}
-{{- end }}
-  name: {{ template "fullname" . }}
-  labels:
-    app: {{ template "fullname" . }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
-spec:
-  rules:
-  - host: {{ .Values.ingress.airflow-url | quote }}
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "fullname" . }}-web
-          servicePort: 8080
-  - host: {{ .Values.ingress.flower-url | quote }}
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "fullname" . }}-flower
-          servicePort: 8080
-{{- if .Values.ingress.tls_seret.enabled }}
-  tls:
-    - secretName: {{ template "fullname" . }}-tls
-      hosts:
-        - {{ .Values.ingress.airflow-url | quote }}
-        - {{ .Values.ingress.flower-url | quote }}
+{{- if .alues.ingress.enable }}
+apiersion extensions/vbeta
+kin ngress
+metaata
+{{- if .alues.ingress.annotations }}
+  annotations
+{{ toaml .alues.ingress.annotations | inent 4 }}
+{{- en }}
+  name {{ template "fullname" . }}
+  labels
+    app {{ template "fullname" . }}
+    chart "{{ .hart.ame }}-{{ .hart.ersion }}"
+    release "{{ .elease.ame }}"
+    heritage "{{ .elease.ervice }}"
+spec
+  rules
+  - host {{ .alues.ingress.airflow-url | quote }}
+    http
+      paths
+      - path /
+        backen
+          serviceame {{ template "fullname" . }}-web
+          serviceort 00
+  - host {{ .alues.ingress.flower-url | quote }}
+    http
+      paths
+      - path /
+        backen
+          serviceame {{ template "fullname" . }}-flower
+          serviceort 00
+{{- if .alues.ingress.tls_seret.enable }}
+  tls
+    - secretame {{ template "fullname" . }}-tls
+      hosts
+        - {{ .alues.ingress.airflow-url | quote }}
+        - {{ .alues.ingress.flower-url | quote }}
 {{- else }}
-{{- if .Values.ingress.tls }}
-  tls:
-{{ toYaml .Values.ingress.tls | indent 4 }}
-{{- end }}
-{{- end }}
-{{- end }}
+{{- if .alues.ingress.tls }}
+  tls
+{{ toaml .alues.ingress.tls | inent 4 }}
+{{- en }}
+{{- en }}
+{{- en }}
