@@ -55,6 +55,7 @@ spec:
           - mountPath: /tmp/aiflow
             name: config
         args: ["initdb"]
+      restartPolicy: OnFailure
       volumes:
       - name: config
         configMap:
