@@ -17,4 +17,3 @@ spec:
       protocol: TCP
       port: 5555
       targetPort: flower
-      nodePort: 32081

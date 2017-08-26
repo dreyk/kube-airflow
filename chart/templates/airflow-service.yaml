@@ -17,4 +17,3 @@ spec:
       protocol: TCP
       port: 8080
       targetPort: web
-      nodePort: 32080
