@@ -15,7 +15,7 @@ metadata:
 #commnt
 spec:
   rules:
-    - host: {{ .Values.ingress.airflow-url | quote }}
+    - host: {{ .Values.ingress.airflow_url | quote }}
       http:
         paths:
           - path: /
