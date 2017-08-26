@@ -64,5 +64,5 @@ spec:
         configMap:
           name: {{ template "fullname" . }}
           items:
-          - key:  /usr/local/airflow/airflow-conf.sh
-            path: $AIRFLOW_HOME/airflow-conf.sh
+          - key:  airflow-conf.sh
+            path: /usr/local/airflow/airflow-conf.sh
