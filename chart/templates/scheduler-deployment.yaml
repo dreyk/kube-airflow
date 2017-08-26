@@ -62,4 +62,4 @@ spec:
           name: {{ template "fullname" . }}
           items:
           - key:  airflow-conf.sh
-            path: /usr/local/airflow/airflow-conf.sh
+            path: airflow-conf.sh
