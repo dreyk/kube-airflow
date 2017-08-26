@@ -2,10 +2,19 @@ postgresql:
   postgresUser: airflow
   postgresPassword: airflow
   postgresDatabase: airflow
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 8Gi
+    subPath: "postgresql-db"
 rabbitmq:
   rabbitmqUsername: airflow
   rabbitmqPassword: airflow
   rabbitmqVhost: airflow
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 8Gi
 
 airflow:
   worker:

@@ -52,7 +52,17 @@ spec:
             secretKeyRef:
               name: {{ template "fullname" . }}
               key: airflow-smtp-password
+        volumeMounts:
+          - mountPath: /usr/local/airflow
+            name: config
         ports:
         - name: web
           containerPort: 8080
         args: ["webserver"]
+    volumes:
+      - name: config
+        configMap:
+          name: {{ template "fullname" . }}
+          items:
+          - key:  /usr/local/airflow/airflow-conf.sh
+            path: $AIRFLOW_HOME/airflow-conf.sh

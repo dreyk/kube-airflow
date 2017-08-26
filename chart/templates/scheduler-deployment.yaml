@@ -53,3 +53,13 @@ spec:
               name: {{ template "fullname" . }}
               key: airflow-smtp-password
         args: ["scheduler", "-n", "5"]
+        volumeMounts:
+          - mountPath: /usr/local/airflow
+            name: config
+    volumes:
+      - name: config
+        configMap:
+          name: {{ template "fullname" . }}
+          items:
+          - key:  /usr/local/airflow/airflow-conf.sh
+            path: $AIRFLOW_HOME/airflow-conf.sh
