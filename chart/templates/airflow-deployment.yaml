@@ -59,7 +59,7 @@ spec:
         - name: web
           containerPort: 8080
         args: ["webserver"]
-    volumes:
+      volumes:
       - name: config
         configMap:
           name: {{ template "fullname" . }}

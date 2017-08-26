@@ -56,7 +56,7 @@ spec:
         volumeMounts:
           - mountPath: /usr/local/airflow
             name: config
-    volumes:
+      volumes:
       - name: config
         configMap:
           name: {{ template "fullname" . }}

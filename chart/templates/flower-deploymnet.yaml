@@ -62,7 +62,7 @@ spec:
         - name: flower
           containerPort: 5555
         args: ["flower"]
-    volumes:
+      volumes:
       - name: config
         configMap:
           name: {{ template "fullname" . }}
