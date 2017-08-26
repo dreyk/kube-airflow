@@ -79,9 +79,10 @@ COPY script/entrypoint.sh ${AIRFLOW_HOME}/entrypoint.sh
 RUN chown -R airflow: ${AIRFLOW_HOME} \
     && chmod +x ${AIRFLOW_HOME}/entrypoint.sh
 
+RUN mkdir -p /usr/local/airflow/confgen
 EXPOSE 8080 5555 8793
 
 USER airflow
 WORKDIR ${AIRFLOW_HOME}
 ENTRYPOINT ["./entrypoint.sh"]
-VOLUME [ "/tmp/airflow" ]
+VOLUME [ "/usr/local/airflow/confgen" ]

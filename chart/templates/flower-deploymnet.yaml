@@ -56,7 +56,7 @@ spec:
               name: {{ template "fullname" . }}
               key: airflow-smtp-password
         volumeMounts:
-          - mountPath: /tmp/aiflow
+          - mountPath: /usr/local/airflow/confgen
             name: config
         ports:
         - name: flower
