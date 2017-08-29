@@ -10,7 +10,7 @@ metadata:
 data:
   airflow-conf.sh: |
     #!/bin/sh
-    cat << EOF
+    cat <<EOF
     [core]
     # The home folder for airflow, default is ~/airflow
     airflow_home = /usr/local/airflow
@@ -160,7 +160,7 @@ data:
     celery_result_backend = amqp://airflow:airflow@rabbitmq:5672/{{ .Values.rabbitmq.rabbitmqVhost }}
 
     # Celery Flower is a sweet UI for Celery. Airflow has a shortcut to start
-    # it `airflow flower`. This defines the port that Celery Flower runs on
+    # it airflow flower. This defines the port that Celery Flower runs on
     flower_port = 5555
 
     # Default queue that tasks get assigned to and that worker listen on.

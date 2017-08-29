@@ -76,10 +76,11 @@ RUN curl -L -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-
 
 COPY script/entrypoint.sh ${AIRFLOW_HOME}/entrypoint.sh
 
+RUN mkdir -p ${AIRFLOW_HOME}/confgen
 RUN chown -R airflow: ${AIRFLOW_HOME} \
+    && chown -R airflow: ${AIRFLOW_HOME}/confgen \
     && chmod +x ${AIRFLOW_HOME}/entrypoint.sh
 
-RUN mkdir -p /usr/local/airflow/confgen
 EXPOSE 8080 5555 8793
 
 USER airflow
