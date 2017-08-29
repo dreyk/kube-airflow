@@ -154,7 +154,7 @@ data:
     # The Celery broker URL. Celery supports RabbitMQ, Redis and experimentally
     # a sqlalchemy database. Refer to the Celery documentation for more
     # information.
-    broker_url = amqp://{{ .Values.rabbitmq.rabbitmqUsername }}:$RABBITMQ_PWD@rabbitmq:5672/{{ .Values.rabbitmq.rabbitmqVhost }}
+    broker_url = amqp://{{ .Values.rabbitmq.rabbitmqUsername }}:$RABBITMQ_PWD@rabbitmq.fullname:5672/{{ .Values.rabbitmq.rabbitmqVhost }}
 
     # Another key Celery setting
     celery_result_backend = amqp://airflow:airflow@rabbitmq:5672/{{ .Values.rabbitmq.rabbitmqVhost }}

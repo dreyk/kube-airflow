@@ -6,6 +6,4 @@ CMD="airflow"
 
 cat $AIRFLOW_HOME/airflow.cfg
 
-exit 1
-
 exec $CMD "$@"
