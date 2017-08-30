@@ -68,7 +68,7 @@ spec:
       volumes:
 {{- if .Values.airflow.dags.dag_share }}
       - name: dag
-{{ toYaml .Values.airflow.dags.dag_share | indent 6 }}
+{{ toYaml .Values.airflow.dags.dag_share | indent 8 }}
 {{- end }}
       - name: config
         configMap:
