@@ -54,9 +54,20 @@ spec:
               key: airflow-smtp-password
         args: ["scheduler", "-n", "5"]
         volumeMounts:
+          {{- if .Values.airflow.dags.dag_share }}
+          - mountPath: /usr/local/airflow/dags
+            name: dag
+            {{- if .Values.airflow.dags.subpath }}
+            subPath: {{ .Values.airflow.dags.subpath }}
+            {{- end }}
+          {{- end }}
           - mountPath: /usr/local/airflow/confgen
             name: config
       volumes:
+      {{- if .Values.airflow.dags.dag_share }}
+      - name: dag
+      {{ toYaml .Values.airflow.dags.dag_share | indent 4 }}
+      {{- end }}
       - name: config
         configMap:
           name: {{ template "fullname" . }}

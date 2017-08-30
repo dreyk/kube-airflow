@@ -27,6 +27,12 @@ airflow:
   base_url: http://localhost:8080
   secret_key: my_key
   service_type: ClusterIP
+  dags:
+    subpath:
+    dag_share:
+      nfs:
+        #path: /kuberlab
+        #server: 192.168.1.55
   smtp:
     host: localhost
     starttls: True
