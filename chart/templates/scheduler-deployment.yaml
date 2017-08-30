@@ -64,10 +64,10 @@ spec:
           - mountPath: /usr/local/airflow/confgen
             name: config
       volumes:
-      {{- if .Values.airflow.dags.dag_share }}
+{{- if .Values.airflow.dags.dag_share }}
       - name: dag
-      {{ toYaml .Values.airflow.dags.dag_share | indent 4 }}
-      {{- end }}
+{{ toYaml .Values.airflow.dags.dag_share | indent 6 }}
+{{- end }}
       - name: config
         configMap:
           name: {{ template "fullname" . }}
