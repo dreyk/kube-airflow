@@ -86,4 +86,4 @@ EXPOSE 8080 5555 8793
 USER airflow
 WORKDIR ${AIRFLOW_HOME}
 ENTRYPOINT ["./entrypoint.sh"]
-VOLUME [ "/usr/local/airflow/confgen" ]
+VOLUME [ "/usr/local/airflow/confgen","/usr/local/airflow/dags"]
